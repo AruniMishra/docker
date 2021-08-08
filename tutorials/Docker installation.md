@@ -4,12 +4,24 @@
 
 - install docker
 - install WSL
-  - Step 1 - Enable the Windows Subsystem for Linux
-    - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
+
+  - Enable the Windows Subsystem for Linux
+
+    ```console
+    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+    ```
+
   - Enable Virtual Machine feature
-    - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
+
+    ```console
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    ```
+
   - Set WSL 2 as your default version
-    - `wsl --set-default-version 2`
+
+    ```console
+    wsl --set-default-version 2
+    ```
 
 ## [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
@@ -123,6 +135,12 @@ $ service --status-all
 $ sudo service docker start
 ```
 
-# Command to run
+### Command to run
 
+```console
 docker run -d -p 80:80 docker/getting-started
+```
+
+```console
+docker stop $(docker ps -aq)
+```
