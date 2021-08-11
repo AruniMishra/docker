@@ -17,3 +17,5 @@ RUN echo '. /etc/apache2/envvars' > /root/run_apache.sh && \
 EXPOSE 80
 
 CMD /root/run_apache.sh
+
+# docker run -t -i -p 80:80 hello-world
