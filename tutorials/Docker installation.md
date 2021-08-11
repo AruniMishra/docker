@@ -134,6 +134,7 @@ $ sudo apt-get remove docker docker-engine docker.io containerd runc
 $ service --status-all
 $ sudo service docker start
 ```
+
 ---
 
 ### Command to run
@@ -145,7 +146,9 @@ docker run -d -p 80:80 docker/getting-started
 ```console
 docker stop $(docker ps -aq)
 ```
+
 ---
+
 To delete all containers including its volumes use
 
 ```console
@@ -156,4 +159,10 @@ To delete all the images,
 
 ```console
 docker rmi -f $(docker images -a -q)
+```
+
+add to uermod
+
+```console
+sudo usermod -aG docker aruni
 ```
