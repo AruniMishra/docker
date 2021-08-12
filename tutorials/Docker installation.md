@@ -166,3 +166,27 @@ add to uermod
 ```console
 sudo usermod -aG docker aruni
 ```
+
+### MySQL
+
+1. run my sql
+
+   ```console
+   docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+   ```
+
+1. find ip adress
+   ```console
+   docker inspect containerId --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+   ```
+
+1. connect to mysql
+    ```console
+    sudo mysql -h 172.17.0.2 -P 3306 --protocol=tcp -u root -p
+    ```
+
+    Or,
+    ```console
+    docker exec -it some-mysql mysql -uroot -p
+    ```
+
