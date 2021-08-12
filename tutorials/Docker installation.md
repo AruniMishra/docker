@@ -175,18 +175,32 @@ sudo usermod -aG docker aruni
    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
    ```
 
+   Or,
+
+   ```console
+   docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -dp 3306:3306 --rm mysql
+   ```
+
 1. find ip adress
+
    ```console
    docker inspect containerId --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
    ```
 
 1. connect to mysql
-    ```console
-    sudo mysql -h 172.17.0.2 -P 3306 --protocol=tcp -u root -p
-    ```
 
-    Or,
-    ```console
-    docker exec -it some-mysql mysql -uroot -p
-    ```
+   ```console
+   sudo mysql -h 172.17.0.2 -P 3306 --protocol=tcp -u root -p
+   ```
 
+   Or (If post mapping specified during docker run)
+
+   ```console
+   sudo mysql -h 127.0.0.1 -P 3306 -u root -p
+   ```
+
+   Or,
+
+   ```console
+   docker exec -it some-mysql mysql -uroot -p
+   ```
