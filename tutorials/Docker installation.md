@@ -135,6 +135,12 @@ add to uermod
 sudo usermod -aG docker aruni
 ```
 
+On Linux, you can also run the following command to activate the changes to groups:
+```console
+ newgrp docker 
+```
+
+
 ### MySQL
 
 1. run my sql
