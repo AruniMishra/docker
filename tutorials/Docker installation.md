@@ -2,7 +2,6 @@
 
 ## [Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
-- install docker
 - install WSL
 
   - Enable the Windows Subsystem for Linux
@@ -23,39 +22,8 @@
     wsl --set-default-version 2
     ```
 
-## [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
-- Uninstall old versions
-
-  ```console
-  sudo apt-get remove docker docker-engine docker.io containerd runc
-  ```
-
-- install
-
-  ```console
-  sudo apt-get update
-  sudo apt  install docker.io
-  ```
-
-- check status
-
-  ```console
-  sudo systemctl status docker
-  ```
-
-- enable
-
-  ```console
-  sudo systemctl enable --now docker
-  ```
-
-- run hellow-world
-  ```console
-  sudo docker run hello-world
-  ```
-
-## [Window Terminal](https://docs.docker.com/engine/install/ubuntu/)
+## [Window Terminal using WSL](https://docs.docker.com/engine/install/ubuntu/)
 
 ### Uninstall old versions
 
