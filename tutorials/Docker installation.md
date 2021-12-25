@@ -124,6 +124,14 @@ docker rm -vf $(docker ps -a -q)
 ```
 
 To delete all the images,
+  - view image:
+    ```console
+    docker image ls
+    ```
+    Or,
+    ```console
+    docker images -a
+    ```
 
 ```console
 docker rmi -f $(docker images -a -q)
