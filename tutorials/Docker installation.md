@@ -153,6 +153,8 @@ On Linux, you can also run the following command to activate the changes to grou
 
 1. run my sql
 
+   e: env variable
+   
    ```console
    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
    ```
