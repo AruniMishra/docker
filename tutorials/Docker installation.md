@@ -173,6 +173,12 @@ On Linux, you can also run the following command to activate the changes to grou
 
 1. connect to mysql
 
+   Install mysql(client) if not installed - Ubuntu
+
+   ```console
+   sudo apt-get install mysql-client
+   ```
+
    ```console
    sudo mysql -h 172.17.0.2 -P 3306 --protocol=tcp -u root -p
    ```
