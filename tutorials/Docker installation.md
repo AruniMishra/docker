@@ -1,8 +1,8 @@
 # Content
 
 - [Content](#content)
-- [Installation](#installation)
-  - [Windows](#windows)
+  - [Installation](#installation)
+    - [Windows](#windows)
   - [Window Terminal using WSL](#window-terminal-using-wsl)
     - [Uninstall old versions](#uninstall-old-versions)
       - [Set up the repository](#set-up-the-repository)
@@ -11,9 +11,9 @@
   - [Command to run](#command-to-run)
   - [MySQL](#mysql)
 
-# Installation
+## Installation
 
-## [Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+### [Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
 - install WSL
 
