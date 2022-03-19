@@ -1,3 +1,16 @@
+# Content
+
+- [Content](#content)
+- [Installation](#installation)
+  - [Windows](#windows)
+  - [Window Terminal using WSL](#window-terminal-using-wsl)
+    - [Uninstall old versions](#uninstall-old-versions)
+      - [Set up the repository](#set-up-the-repository)
+      - [Install Docker Engine](#install-docker-engine)
+  - [Start service](#start-service)
+  - [Command to run](#command-to-run)
+  - [MySQL](#mysql)
+
 # Installation
 
 ## [Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
@@ -22,7 +35,6 @@
     wsl --set-default-version 2
     ```
 
-
 ## [Window Terminal using WSL](https://docs.docker.com/engine/install/ubuntu/)
 
 ### Uninstall old versions
@@ -31,7 +43,7 @@ Older versions of Docker were called `docker`, `docker.io`, or `docker-engine`.
 If these are installed, uninstall them:
 
 ```console
-$ sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
 #### Set up the repository
@@ -53,7 +65,7 @@ $ sudo apt-get remove docker docker-engine docker.io containerd runc
 2. Add Docker's official GPG key:
 
    ```console
-   $ curl -fsSL {{ download-url-base }}/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+   curl -fsSL {{ download-url-base }}/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
    ```
 
 3. Use the following command to set up the **stable** repository.
@@ -66,46 +78,46 @@ $ sudo apt-get remove docker docker-engine docker.io containerd runc
 
 #### Install Docker Engine
 
-1.  Update the `apt` package index, and install the _latest version_ of Docker
+1. Update the `apt` package index, and install the _latest version_ of Docker
     Engine and containerd, or go to the next step to install a specific version:
 
     ```console
-    $ sudo apt-get update
-    $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io
     ```
 
-2.  To install a _specific version_ of Docker Engine, list the available version
+2. To install a _specific version_ of Docker Engine, list the available version
 
     a. List the versions available in your repo:
 
     ```console
-    $ apt-cache madison docker-ce
+    apt-cache madison docker-ce
     ```
 
     b. Install a specific version using the version string from the second column,
     for example, `5:18.09.1~3-0~ubuntu-xenial`.
 
-        ```console
-        $ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
-        ```
+   ```bash
+   sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
+   ```
 
-3.  Verify that Docker Engine is installed correctly by running the `hello-world`
+3. Verify that Docker Engine is installed correctly by running the `hello-world`
     image.
 
     ```console
-    $ sudo docker run hello-world
+    sudo docker run hello-world
     ```
 
-### Start service
+## Start service
 
 ```console
-$ service --status-all
-$ sudo service docker start
+service --status-all
+sudo service docker start
 ```
 
 ---
 
-### Command to run
+## Command to run
 
 ```console
 docker run -d -p 80:80 docker/getting-started
@@ -113,6 +125,12 @@ docker run -d -p 80:80 docker/getting-started
 
 ```console
 docker stop $(docker ps -aq)
+```
+
+- Nginx
+
+```bash
+docker run --name some-nginx -p 80:80 -d nginx
 ```
 
 ---
@@ -124,11 +142,15 @@ docker rm -vf $(docker ps -a -q)
 ```
 
 To delete all the images,
-  - view image:
+
+- view image:
+
     ```console
     docker image ls
     ```
+
     Or,
+
     ```console
     docker images -a
     ```
@@ -144,17 +166,17 @@ sudo usermod -aG docker aruni
 ```
 
 On Linux, you can also run the following command to activate the changes to groups:
+
 ```console
  newgrp docker 
 ```
 
-
-### MySQL
+## MySQL
 
 1. run my sql
 
    e: env variable
-   
+
    ```console
    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
    ```
