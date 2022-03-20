@@ -10,6 +10,7 @@
   - [Start service](#start-service)
   - [Command to run](#command-to-run)
   - [MySQL](#mysql)
+  - [Volumes](#volumes)
 
 ## Installation
 
@@ -178,13 +179,13 @@ On Linux, you can also run the following command to activate the changes to grou
    e: env variable
 
    ```console
-   docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+   docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=pass123 -d mysql
    ```
 
    Or,
 
    ```console
-   docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -dp 3306:3306 --rm mysql
+   docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=pass123 -dp 3306:3306 --rm mysql
    ```
 
 1. find ip adress
@@ -216,3 +217,22 @@ On Linux, you can also run the following command to activate the changes to grou
    ```console
    docker exec -it some-mysql mysql -uroot -p
    ```
+
+## Volumes
+
+to keep the writable layer data persited even affter the containers is stopped.
+
+- docker volume create my-vol
+- docker volume inspect my-vol
+- docker container run -dit --mount source=my-vol,target=/app ubuntu
+
+- docker attach containerId  
+
+    docker run, docker start, docker attach all was not successful, turns out the command I needed (after the container has been started with run or start) was to execute bash, as chances are the container you pulled from doesn't have bash already running.
+
+    Solution:
+    docker exec -it container-id bash
+
+- ls
+- cd /app
+- echo "container" > sample.txt
