@@ -1,0 +1,12 @@
+docker build -t customsql .
+
+docker run -d -p 3306:3306 --name appsql customsql
+
+docker exec -it appsql bash
+mysql -uroot -p
+
+// Push this to Azure container registry
+
+docker tag customsql acrrepo.azurecr.io/customsql
+
+docker push acrrepo.azurecr.io/customsql
